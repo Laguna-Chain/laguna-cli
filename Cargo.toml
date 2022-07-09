@@ -1,0 +1,47 @@
+[package]
+edition = "2021"
+name = "laguna-cli"
+version = "0.1.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.58"
+async-std = {version = "1.12.0", features = ["attributes", "tokio1"]}
+clap = "3.2.8"
+color-eyre = "0.6.1"
+jsonrpsee = {version = "=0.14.0", features = ["async-client"], package = "jsonrpsee"}
+
+pallet-contracts-primitives = {git = 'https://github.com/paritytech/substrate.git', branch = "polkadot-v0.9.22"}
+pallet-contracts-rpc = {git = 'https://github.com/paritytech/substrate.git', branch = "polkadot-v0.9.22"}
+sp-rpc = {git = 'https://github.com/paritytech/substrate.git', branch = "polkadot-v0.9.22"}
+
+# old-contracts-primitives = {path = "../substrate/frame/contracts/common", package = "pallet-contracts-primitives"}
+# old-sp-core = {path = "../substrate/primitives/core", package = "sp-core"}
+# # old-sp-keyring = {path = "../substrate/primitives/keyring", package = "sp-keyring"}
+# old-sp-rpc = {path = "../substrate/primitives/rpc", package = "sp-rpc"}
+# old-sp-runtime = {path = "../substrate/primitives/runtime", package = "sp-runtime"}
+
+primitives = {version = "0.1.0", path = "../laguna-chain/primitives"}
+
+runtime = {version = "0.1.0", path = "runtime"}
+# subxt = {path = "../subxt/subxt"}
+subxt = {version = "0.22.0"}
+
+[workspace]
+members = [
+  "runtime",
+]
+
+[patch."https://github.com/paritytech/substrate"]
+# pallet-contracts-rpc = {path = "../substrate/frame/contracts/rpc"}
+# frame-benchmarking = {path = "../substrate/frame/benchmarking"}
+# frame-support = {path = "../substrate/frame/support"}
+# pallet-authorship = {path = "../substrate/frame/authorship"}
+# pallet-contracts-primitives = {path = "../substrate/frame/contracts/common"}
+# sp-core = {path = "../substrate/primitives/core"}
+# sp-externalities = {path = "../substrate/primitives/externalities"}
+# sp-io = {path = "../substrate/primitives/io"}
+# sp-rpc = {path = "../substrate/primitives/rpc"}
+# sp-runtime = {path = "../substrate/primitives/runtime"}
+# sp-timestamp = {path = "../substrate/primitives/timestamp"}
