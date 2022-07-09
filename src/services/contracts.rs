@@ -7,12 +7,13 @@ use pallet_contracts_rpc::{self, CallRequest, ContractsApiClient, InstantiateReq
 use primitives::{AccountId, Balance, BlockNumber, Hash};
 
 use laguna_runtime::opaque::Block;
-use subxt::{rpc::NumberOrHex, sp_core::Bytes};
+use subxt::sp_core::Bytes;
 
 // use old_sp_core::Bytes;
-// use old_sp_rpc::number::NumberOrHex;
+use old_sp_rpc::number::NumberOrHex;
+use old_sp_runtime::DispatchError;
 
-static MAX_GAS: NumberOrHex = NumberOrHex::Number(200_000_000);
+static MAX_GAS: NumberOrHex = NumberOrHex::Number(200_000_000_000);
 
 impl ClientWrapper {
     pub async fn try_instantiate(
@@ -40,7 +41,16 @@ impl ClientWrapper {
         )
         .await?;
 
-        dbg!(resp);
+        if let Err(DispatchError::Module(m)) = resp.result {
+            let meta_handle = self.0.client.metadata().clone();
+            let meta = meta_handle.read();
+
+            let err = meta.error(m.index, m.error[0])?;
+
+            dbg!(err);
+        } else {
+            dbg!(resp);
+        }
 
         Ok(())
     }

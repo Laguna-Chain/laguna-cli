@@ -4,3 +4,6 @@ rustflags = ["-C", "link-arg=-fuse-ld=/usr/local/bin/mold"]
 
 [build]
 rustc-wrapper = "/home/ubuntu/.cargo/bin/sccache"
+
+[net]
+git-fetch-with-cli = true
