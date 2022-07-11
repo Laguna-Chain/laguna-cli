@@ -1,14 +1,7 @@
-use std::ops::Deref;
-
 use color_eyre::Result;
 use pallet_contracts_primitives::{Code, ContractInstantiateResult, ContractResult};
-// use old_contracts_primitives::Code;
-// use old_sp_core::Bytes;
-// use old_sp_runtime::{
-//     traits::{IdentifyAccount, Verify},
-//     CryptoType,
-// };
-use runtime::*;
+
+use runtime::laguna::*;
 use std::str::FromStr;
 use subxt::{sp_core::Bytes, ClientBuilder, DefaultConfig, SubstrateExtrinsicParams};
 

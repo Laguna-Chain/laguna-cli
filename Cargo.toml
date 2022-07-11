@@ -17,9 +17,7 @@ laguna-runtime = {branch = "main", git = "ssh://git@github.com/Laguna-Chain/lagu
 pallet-contracts-primitives = {git = 'https://github.com/Laguna-Chain/substrate.git', branch = "laguna-cli-fixes-polkadot-v0.9.22"}
 pallet-contracts-rpc = {git = 'https://github.com/Laguna-Chain/substrate.git', branch = "laguna-cli-fixes-polkadot-v0.9.22"}
 
-# old-contracts-primitives = {path = "../substrate/frame/contracts/common", package = "pallet-contracts-primitives"}
-# old-sp-core = {path = "../substrate/primitives/core", package = "sp-core"}
-# # old-sp-keyring = {path = "../substrate/primitives/keyring", package = "sp-keyring"}
+old-sp-core = {git = 'https://github.com/paritytech//substrate.git', branch = "polkadot-v0.9.22", package = "sp-rpc"}
 old-sp-rpc = {git = 'https://github.com/paritytech//substrate.git', branch = "polkadot-v0.9.22", package = "sp-rpc"}
 old-sp-runtime = {git = 'https://github.com/paritytech//substrate.git', branch = "polkadot-v0.9.22", package = "sp-runtime"}
 
@@ -43,6 +41,5 @@ sp-rpc = {git = 'https://github.com/paritytech//substrate.git', branch = "polkad
 sp-runtime = {git = 'https://github.com/paritytech//substrate.git', branch = "polkadot-v0.9.22"}
 
 [patch.crates-io]
-sp-core = {git = 'https://github.com/paritytech/substrate.git', branch = "polkadot-v0.9.22"}
-sp-runtime = {git = 'https://github.com/paritytech/substrate.git', branch = "polkadot-v0.9.22"}
-# sp-rpc = {git = 'https://github.com/paritytech/substrate.git', branch = "polkadot-v0.9.22"}
+# sp-core = {git = 'https://github.com/paritytech/substrate.git', branch = "polkadot-v0.9.22"}
+# sp-runtime = {git = 'https://github.com/paritytech/substrate.git', branch = "polkadot-v0.9.22"}
